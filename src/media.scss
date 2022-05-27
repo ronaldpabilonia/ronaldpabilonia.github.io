@@ -1,0 +1,7 @@
+$screen-sm: 360px;
+$screen-md: 768px;
+$screen-lg: 1440px;
+
+$media-lg: unquote("(min-width: " + $screen-lg + ")");
+$media-md: unquote("(min-width: " + $screen-md + ") and (max-width: " + ($screen-lg - 1) + ")");
+$media-sm: unquote("(max-width: " + ($screen-md - 1) + ")");
