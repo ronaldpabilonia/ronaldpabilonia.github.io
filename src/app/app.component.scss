@@ -1,5 +1,53 @@
 @import '../media.scss';
 
+@mixin text-section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  @media #{$media-sm} {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  p {
+    font-size: 24px;
+  }
+}
+
+@mixin project-tiles {
+  .row {
+    @media #{$media-sm} {
+      display: block;
+      height: unset;
+    }
+
+    .col {
+      .project-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        padding: 24px;
+        color: #fff;
+        
+        h1 {
+          font-size: 4rem;
+          margin-bottom: 0;
+        }
+      }
+
+      .project-desc {
+        padding: 24px;
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
 .container {
   padding: 160px 0;
 
@@ -19,6 +67,7 @@
       height: 240px;
       width: 240px;
       border-radius: 100%;
+      border: 4px solid #000;
       background: url(../assets/photo.jpg);
       background-size: 240px 320px;
       background-position-y: -40px;
@@ -34,6 +83,7 @@
       @media #{$media-sm} {
         margin-left: 0;
         text-align: center;
+        margin-top: 40px;
       }
 
       h1 {
@@ -44,7 +94,8 @@
         @media #{$media-sm} {
           display: flex;
           justify-content: space-evenly;
-          width: 300
+          width: 300;
+          margin-top: 24px;
         }
 
         i {
@@ -61,17 +112,11 @@
     }
   }
 
-  .tech {
-    margin-top: 40px;
-    margin-bottom: 40px;
-
-    @media #{$media-sm} {
-      margin: 40px;
-    }
-
-    p {
-      font-size: 24px;
-    }
+  .tech,
+  .projects,
+  .jobs, 
+  .download {
+    @include text-section;
   }
 
   .tech-icons {
@@ -145,6 +190,199 @@
             color: #fff;
           }
         }
+      }
+    }
+  }
+
+  .project-items {
+    margin-bottom: 64px;
+
+    @media #{$media-sm} {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+    
+    .item {
+      border: 4px solid #000;
+      margin-bottom: 24px;
+
+      &.bt {
+        .row {
+          .col {
+            .project-icon {
+              background-color: #06b2e3;
+            }
+          }
+        }
+      }
+
+      &.ybr {
+        .row {
+          .col {
+            .project-icon {
+              background: radial-gradient(
+                circle at 6% 0px,
+                rgb(166, 87, 246),
+                rgb(234, 86, 64) 24%,
+                rgb(235, 81, 58) 31%,
+                rgb(234, 103, 84) 44%,
+                rgb(234, 66, 131) 82%,
+                rgb(83, 171, 235)
+              );
+            }
+          }
+        }
+      }
+
+      &.yc {
+        .row {
+          .col {
+            .project-icon {
+              background: linear-gradient(
+                163deg,
+                rgb(181, 85, 251) 0%,
+                rgb(178, 84, 254) 6%,
+                rgb(253, 75, 61) 22%,
+                rgb(254, 103, 87) 67%,
+                rgb(232, 113, 193) 84%,
+                rgb(55, 166, 226) 93%,
+                rgb(38, 173, 236) 99%
+              );
+            }
+          }
+        }
+      }
+
+      &.yci {
+        .row {
+          .col {
+            .project-icon {
+              background: #de5246;
+            }
+          }
+        }
+      }
+
+      &.fr {
+        .row {
+          .col {
+            .project-icon {
+              background: #212121;
+            }
+          }
+        }
+      }
+
+      &.hb {
+        .row {
+          .col {
+            .project-icon {
+              background: #cb3737;
+            }
+          }
+        }
+      }
+
+      @include project-tiles;
+    }
+  }
+
+
+  
+  .job-items {
+    @media #{$media-sm} {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+    
+    .row {
+      @media #{$media-sm} {
+        display: block;
+      }
+
+      .col {
+        padding-bottom: 24px;
+
+        @media #{$media-sm} {
+          padding: 0;
+        }
+
+        .item {
+          height: 100%;
+          border: 4px solid #000;
+          margin-bottom: 24px;
+
+          .img {
+            display: flex;
+            height: 160px;
+            align-items: center;
+            padding: 16px;
+
+            img {
+              height: 160px;
+              width: 100%;
+              
+              &.yg {
+                height: unset;
+              }
+            }
+
+            &.uni {
+              justify-content: center;
+
+              img {
+                width: 100%;
+                height: 260px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .download {
+    text-align: center;
+    margin-top: 160px;
+  }
+}
+
+footer {
+  background-color: #212121;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+
+  @media #{$media-sm} {
+    display: block;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .name {
+    width: 85%;
+
+    @media #{$media-sm} {
+      width: 100%;
+    }
+  }
+
+  .links {
+    @media #{$media-sm} {
+      width: 60%;
+      margin: auto;
+      margin-top: 8px;
+    }
+
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    a {
+      color: #fff;
+
+      &:hover {
+        color: gray;
       }
     }
   }
