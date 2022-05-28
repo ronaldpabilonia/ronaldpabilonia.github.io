@@ -4,12 +4,19 @@
     <div class="name">
       <h1>Ronald Pabilonia</h1>
       <h5>Frontend Developer, Philippines</h5>
-      <div class="links">
+      <div *ngIf="!downloading" class="links">
         <a href="tel:+639159463072"><i class="bi bi-telephone-fill"></i></a>
         <a href="mailto:ronald.pabilonia@gmail.com"><i class="bi bi-envelope-fill"></i></a>
         <a href="https://www.linkedin.com/in/ronaldpabilonia/" target="_blank"><i class="bi bi-linkedin"></i></a>
         <a href="https://stackoverflow.com/users/2760400/rnldpbln/" target="_blank"><i class="bi bi-stack-overflow"></i></a>
         <a href="https://efset.org/cert/qZzBvP/" target="_blank"><i class="bi bi-book-fill"></i></a>
+      </div>
+      <div *ngIf="downloading" class="links">
+        <div>(+63) 915 946 3072</div>
+        <div>ronald.pabilonia@gmail.com</div>
+        <div>https://www.linkedin.com/in/ronaldpabilonia/</div>
+        <div>https://stackoverflow.com/users/2760400/rnldpbln/</div>
+        <div>https://efset.org/cert/qZzBvP/</div>
       </div>
     </div>
   </div>
@@ -260,12 +267,12 @@
       </div>
     </div>
   </div>
-  <div class="download">
-    <h3>If you need this in this page in printable form, you can download it below</h3>
-    <button class="btn btn-primary btn-block btn-lg">Download PDF</button>
+  <div *ngIf="!downloading" class="download">
+    <h3>If you need this in this page in printable form, you can download it below.</h3>
+    <button class="btn btn-primary btn-block btn-lg" (click)="download()">Download PDF</button>
   </div>
 </section>
-<footer>
+<footer *ngIf="!downloading">
   <div class="name">
     Ronald Pabilonia © 2022
   </div>
